@@ -5,21 +5,36 @@ import java.util.Calendar;
 
 public class Greeter {
 
-	public String greet() {
+	public Aisatu greet() {
 		Calendar calendar = getTime();
 		int hour = calendar.get(Calendar.HOUR_OF_DAY);
 		if(hour >= 5 && hour < 12){
-			return "おはようございます";
+			return Aisatu.MORNING;
 		}
 		else if(hour >= 12 && hour < 18){
-			return "こんにちは";
+			return Aisatu.MIDDY;
 		}
 		else{
-			return "こんばんは";
+			return Aisatu.NIGHT;
 		}
 	}
 	
 	protected Calendar getTime(){
 		return Calendar.getInstance();
+	}
+
+	public enum Aisatu{
+		MORNING("おはようございます"),
+		MIDDY("こんにちは"),
+		NIGHT("こんばんは");
+		
+		private String aisatu;
+
+		private Aisatu(String aisatu) {
+			this.aisatu = aisatu;
+		}
+		public String toString(){
+			return aisatu;
+		}
 	}
 }

@@ -14,7 +14,9 @@ public class Greeter {
 		else if(hour >= 12 && hour < 18){
 			return "こんにちは";
 		}
-		return null;
+		else{
+			return "こんばんは";
+		}
 	}
 	
 	protected Calendar getTime(){
